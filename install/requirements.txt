@@ -1,0 +1,9 @@
+pygame
+Pillow
+pywin32
+pygetwindow
+elevate
+GitPython
+requests
+keyboard
+psutil

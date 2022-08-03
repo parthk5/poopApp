@@ -1,0 +1,12 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers]
+"C:\\Windows\\System32\\cmd.exe"="~ RUNASADMIN"
+"C:\\Windows\\SysWOW64\\cmd.exe"="~ RUNASADMIN"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers]
+"C:\\Windows\\System32\\cmd.exe"="~ RUNASADMIN"
+"C:\\Windows\\SysWOW64\\cmd.exe"="~ RUNASADMIN"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers]
+@="C:\\Windows\\System32\\cmd.exe"="RUNASADMIN"
