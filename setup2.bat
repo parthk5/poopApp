@@ -4,6 +4,8 @@
 
 regedit.exe /S rsc/dist/win64/runasadmincmd.REG
 
+powercfg -change -standby-timeout-ac 0
+
 taskkill /IM explorer.exe /F & start explorer.exe
 
 CALL rsc/dist/python/py-install.bat
@@ -23,6 +25,7 @@ set "path=%PATH%;C:\Program Files\Python37"
 setx path "%PATH%;C:\Program Files\Python37\Scripts"
 set "path=%PATH%;C:\Program Files\Python37\Scripts"
 
+del "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\setupbat.lnk"
 
 cd ../../../
 
@@ -39,5 +42,3 @@ CALL tasks.bat
 cd ..
 
 :: CALL run.bat
-
-cmd /k

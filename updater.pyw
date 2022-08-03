@@ -10,6 +10,8 @@ from time import sleep
 
 elevate()
 
+os.system("taskkill /IM powershell.exe /F")
+
 HOME_PATH = os.getcwd()
 
 USER_TEMP = os.environ['USERPROFILE'] + "/AppData/Local/"
@@ -54,14 +56,17 @@ if latestReleaseNumber > currentReleaseNumber:
     os.chdir(TEMP_UPDATE)
     
     GET_RELEASE_URL = f"https://github.com/parthk5/poopApp/archive/refs/tags/{latestReleaseV}.zip"
-    GET_RELEASE_CMD = f"C:/Windows/System32/powershell.exe curl {GET_RELEASE_URL} -O latestrelease.zip"
-    GET_RELEASE_ALT_CMD = f"C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe curl {GET_RELEASE_URL} -O latestrelease.zip"
+    GET_RELEASE_CMD = f"C:/Windows/System32/powershell.exe $ProgressPreference = 'SilentlyContinue' ; curl {GET_RELEASE_URL} -O latestrelease.zip"
+    GET_RELEASE_ALT_CMD = f"C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe $ProgressPreference = 'SilentlyContinue' ; curl {GET_RELEASE_URL} -O latestrelease.zip"
 
-    print(f"POWERSHELL COMMAND: {GET_RELEASE_CMD}")
-    print(f"POWERSHELL ALT COMMAND: {GET_RELEASE_ALT_CMD}\n")
+    #NEW_RELEASE_CMD = f"certutil.exe -urlcache -split -f {GET_RELEASE_URL} latestrelease.zip"
+    
+    #print(f"POWERSHELL COMMAND: {GET_RELEASE_CMD}")
+    #print(f"POWERSHELL ALT COMMAND: {GET_RELEASE_ALT_CMD}\n")
 
     subprocess.call(GET_RELEASE_CMD, shell=True)
     subprocess.call(GET_RELEASE_ALT_CMD, shell=True)
+    #subprocess.call(NEW_RELEASE_CMD, shell=True)
 
     INSTALL_LOCATION = os.getcwd()
 
